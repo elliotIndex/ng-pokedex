@@ -3,6 +3,7 @@
 
 var SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 var browserstack = require('browserstack-local');
+var bsCredentials = require('./bsCredentials.js');
 
 exports.config = {
   allScriptsTimeout: 11000,
@@ -11,8 +12,8 @@ exports.config = {
   ],
   seleniumAddress: 'http://hub-cloud.browserstack.com/wd/hub',
   'commonCapabilities': {
-    'browserstack.user': 'browserstackusername',
-    'browserstack.key': 'browserstackkey',
+    'browserstack.user': bsCredentials.user,
+    'browserstack.key': bsCredentials.key,
     'build': 'protractor-browserstack',
     'name': 'parallel_local_test',
     'browserstack.local': true,
